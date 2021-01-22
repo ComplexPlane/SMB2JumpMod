@@ -4,7 +4,7 @@ Super Monkey Ball 2, with a jump button.
 
 # Quickstart
 
-The Jump Mod installs just like the [ApeSphere Practice Mod](https://github.com/complexplane/apesphere).
+The Jump Mod installs just like the [ApeSphere Practice Mod](https://github.com/complexplane/apesphere). Releases of the jump mod can be found [here](https://github.com/ComplexPlane/SMB2JumpMod/releases).
 
 ## Setup
 
