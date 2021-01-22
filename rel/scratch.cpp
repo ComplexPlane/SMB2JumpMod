@@ -3,6 +3,7 @@
 #include <mkb/mkb.h>
 #include <cstring>
 #include "pad.h"
+#include "patch.h"
 
 #define ABS(x) ((x) < 0 ? (-x) : (x))
 
@@ -22,6 +23,7 @@ extern "C"
 {
 void g_call_SoundReqID_arg_0(s32 id);
 void spawn_effect(Effect *effect);
+void toggle_minimap_zoom(void);
 }
 
 }
@@ -55,6 +57,25 @@ void init()
 
 void tick()
 {
+    if (mkb::sub_mode == mkb::SMD_GAME_FIRST_INIT)
+    {
+        // Prevent minimap from being resized with A
+        // Need to patch on each main_game REL reload
+        patch::write_nop(reinterpret_cast<void *>(0x808f4d18));
+        patch::write_nop(reinterpret_cast<void *>(0x808f5168));
+    }
+
+    bool paused_now = *reinterpret_cast<u32 *>(0x805BC474) & 8; // TODO actually give this a name
+    if ((mkb::sub_mode == mkb::SMD_GAME_READY_MAIN
+        || mkb::sub_mode == mkb::SMD_GAME_PLAY_MAIN)
+        && !paused_now)
+    {
+        if (pad::button_pressed(pad::BUTTON_B))
+        {
+            mkb::toggle_minimap_zoom();
+        }
+    }
+
     if (mkb::sub_mode != mkb::SMD_GAME_READY_MAIN
         && mkb::sub_mode != mkb::SMD_GAME_PLAY_INIT
         && mkb::sub_mode != mkb::SMD_GAME_PLAY_MAIN
