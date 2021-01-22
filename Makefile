@@ -16,6 +16,8 @@ us: elf2rel
 	@$(MAKE) --no-print-directory REGION=us GAMECODE=GM2E8P
 gaiden: elf2rel
 	@$(MAKE) --no-print-directory REGION=us GAMECODE=GM2EGD
+monkeyed2: elf2rel
+	@$(MAKE) --no-print-directory REGION=us GAMECODE=GM2EBJ
 jp: elf2rel
 	@$(MAKE) --no-print-directory REGION=jp GAMECODE=GM2J8P
 eu: elf2rel
@@ -24,6 +26,7 @@ eu: elf2rel
 clean: clean_elf2rel
 	@$(MAKE) --no-print-directory clean_target REGION=us GAMECODE=GM2E8P
 	@$(MAKE) --no-print-directory clean_target REGION=us GAMECODE=GM2EGD
+	@$(MAKE) --no-print-directory clean_target REGION=us GAMECODE=GM2EBJ
 	@$(MAKE) --no-print-directory clean_target REGION=jp GAMECODE=GM2J8P
 	@$(MAKE) --no-print-directory clean_target REGION=eu GAMECODE=GM2P8P
 
@@ -92,6 +95,10 @@ else ifeq ($(GAMECODE),GM2EGD)
 	CFLAGS += -DMKB2_US
 	ASFLAGS += -DMKB2_US
 	PRINTVER = "GAIDEN"
+else ifeq ($(GAMECODE),GM2EBJ)
+	CFLAGS += -DMKB2_US
+	ASFLAGS += -DMKB2_US
+	PRINTVER = "MONKEYED2"
 else ifeq ($(GAMECODE),GM2J8P)
 	CFLAGS += -DMKB2_JP
 	ASFLAGS += -DMKB2_JP

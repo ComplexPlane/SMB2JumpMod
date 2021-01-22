@@ -3,7 +3,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 
-PPCINJECT=~/romhack/util/ppc-inject/PPCInject 
+PPCINJECT=~/romhack/util/ppc-inject/PPCInject
 DOL_SRC=~/romhack/smb2imm/sys/main.dol
 DOL_DEST=~/romhack/smb2mut/sys/main.dol
 RELLOADER_SRC=relloader/src/iso-rel-loader-us.asm
@@ -18,6 +18,8 @@ make us -j$(nproc)
 # echo 'Copying REL to smb2mut'
 # cp ApeSphere.us.rel ~/romhack/smb2mut/files/mkb2.rel_sample.rel
 
-echo 'Copying GCI to dolphin emu folder' 
+echo 'Copying GCI to dolphin emu folder'
 mkdir -p /c/Users/ComplexPlane/Documents/Dolphin\ Emulator/GC/USA/Card\ B/
-cp ApeSphere.us.gci /c/Users/ComplexPlane/Documents/Dolphin\ Emulator/GC/USA/Card\ B/
+cp ApeSphere.GM2E8P.gci /c/Users/ComplexPlane/Documents/Dolphin\ Emulator/GC/USA/Card\ B/
+[[ -f ApeSphere.GM2EGD.gci ]] && cp ApeSphere.GM2EGD.gci /c/Users/ComplexPlane/Documents/Dolphin\ Emulator/GC/USA/Card\ B/
+[[ -f ApeSphere.GM2EBJ.gci ]] && cp ApeSphere.GM2EBJ.gci /c/Users/ComplexPlane/Documents/Dolphin\ Emulator/GC/USA/Card\ B/
