@@ -4,6 +4,7 @@
 #include <cstring>
 #include "pad.h"
 #include "patch.h"
+#include "draw.h"
 
 #define ABS(x) ((x) < 0 ? (-x) : (x))
 
@@ -39,6 +40,11 @@ static s32 s_ticks_since_jump_input = -1;
 static s32 s_ticks_since_ground = -1;
 static s32 s_ticks_since_jump = 1000;
 
+static s32 s_sfx_idx = 0;
+
+const s32 JUMP_SOUNDS[] = {268, 50, 52, 55, 295, 500, -1};
+constexpr s32 NUM_JUMP_SOUNDS = sizeof(JUMP_SOUNDS) / sizeof(JUMP_SOUNDS[0]);
+
 static void reset()
 {
     s_ticks_since_jump_input = -1;
@@ -57,6 +63,22 @@ void init()
 
 void tick()
 {
+    // Allow changing the sfx
+    if (pad::button_chord_pressed(pad::BUTTON_LTRIG, pad::BUTTON_X))
+    {
+        s_sfx_idx = (s_sfx_idx + 1) % NUM_JUMP_SOUNDS;
+
+        if (JUMP_SOUNDS[s_sfx_idx] != -1)
+        {
+            draw::notify(draw::Color::WHITE, "Jump sound: %d", s_sfx_idx + 1);
+            mkb::g_call_SoundReqID_arg_0(JUMP_SOUNDS[s_sfx_idx]);
+        }
+        else
+        {
+            draw::notify(draw::Color::WHITE, "Jump sound: OFF");
+        }
+    }
+
     if (mkb::sub_mode == mkb::SMD_GAME_FIRST_INIT)
     {
         // Prevent minimap from being resized with A
@@ -115,7 +137,7 @@ void tick()
 
     if (s_jumping && s_jump_frames == 0)
     {
-        mkb::g_call_SoundReqID_arg_0(268);
+        mkb::g_call_SoundReqID_arg_0(JUMP_SOUNDS[s_sfx_idx]);
     }
 
     if (s_jumping)

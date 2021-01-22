@@ -60,7 +60,7 @@ void init()
     perform_assembly_patches();
 
     heap::init();
-//    draw::init();
+    draw::init();
 //    Tetris::get_instance().init();
 //    savestate::init();
 //    timer::init();
@@ -74,8 +74,8 @@ void init()
             // Gets run at the start of smb2's function which draws debug text windows,
             // which is called at the end of smb2's function which draws the UI in general.
 
-//            draw::predraw();
-//            draw::disp();
+            draw::predraw();
+            draw::disp();
 //            timer::disp();
 //            iw::disp();
 //            Tetris::get_instance().disp();
