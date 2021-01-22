@@ -56,7 +56,7 @@ static void reset()
 
 void init()
 {
-    mkb::ball_friction = 0.027f;
+    mkb::ball_friction = 0.015;
     mkb::ball_restitution = 0.25f;
     reset();
 }
