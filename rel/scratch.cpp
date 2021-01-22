@@ -64,7 +64,7 @@ void init()
 void tick()
 {
     // Allow changing the sfx
-    if (pad::button_chord_pressed(pad::BUTTON_LTRIG, pad::BUTTON_X))
+    if (pad::button_chord_pressed(pad::BUTTON_RTRIG, pad::BUTTON_X))
     {
         s_sfx_idx = (s_sfx_idx + 1) % NUM_JUMP_SOUNDS;
 

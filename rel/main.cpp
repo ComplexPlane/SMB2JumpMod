@@ -79,7 +79,7 @@ void init()
 //            timer::disp();
 //            iw::disp();
 //            Tetris::get_instance().disp();
-//            menu::disp();
+            menu::disp();
 
             s_draw_debug_text_trampoline();
         });
@@ -110,7 +110,7 @@ void tick()
 //    timer::tick();
 //    iw::tick();
 //    savestate::tick();
-//    menu::tick();
+    menu::tick();
     scratch::tick();
 }
 
