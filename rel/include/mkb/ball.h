@@ -36,7 +36,7 @@ struct Ball
     u16 g_some_rot;
     u16 g_some_rot2;
     u16 g_some_rot3;
-    char g_not_padding; /* Used to be called padding, but I saw it written to */
+    u8 idx;
     u8 field_0x2f;
     float g_some_rot4;
     float g_some_rot5;

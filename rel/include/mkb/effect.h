@@ -87,7 +87,11 @@ struct Effect
     u16 id;
     u8 unk_0x4[4];
     u16 type;
-    u8 unk_0xa[166];
+    u8 unk_0xa[10];
+    s16 g_ball_idx;
+    u8 unk_0x16[30];
+    Vec3f g_pos;
+    u8 unk_0x40[112];
 };
 
 static_assert(sizeof(Effect) == 176);
