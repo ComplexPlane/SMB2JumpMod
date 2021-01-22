@@ -44,11 +44,11 @@ static void perform_assembly_patches()
     patch::write_nop(reinterpret_cast<void *>(0x80299f54));
 
     // IW-related patches
-    patch::write_branch(reinterpret_cast<void *>(0x80274804), reinterpret_cast<void *>(stage_select_menu_hook));
-    patch::write_branch(reinterpret_cast<void *>(0x8032a86c), reinterpret_cast<void *>(pause_menu_text_hook));
+//    patch::write_branch(reinterpret_cast<void *>(0x80274804), reinterpret_cast<void *>(stage_select_menu_hook));
+//    patch::write_branch(reinterpret_cast<void *>(0x8032a86c), reinterpret_cast<void *>(pause_menu_text_hook));
 
     // Titlescreen patches
-    strcpy(reinterpret_cast<char *>(0x8047f4ec), "APESPHERE PRACTICE MOD");
+    strcpy(reinterpret_cast<char *>(0x8047f4ec), "JUMP MOD");
     patch::write_branch(reinterpret_cast<void *>(0x8032ad0c),
                         reinterpret_cast<void *>(main::custom_titlescreen_text_color));
 }
@@ -60,11 +60,11 @@ void init()
     perform_assembly_patches();
 
     heap::init();
-    draw::init();
-    Tetris::get_instance().init();
-    savestate::init();
-    timer::init();
-    iw::init();
+//    draw::init();
+//    Tetris::get_instance().init();
+//    savestate::init();
+//    timer::init();
+//    iw::init();
     scratch::init();
 
     s_draw_debug_text_trampoline = patch::hook_function(
@@ -74,12 +74,12 @@ void init()
             // Gets run at the start of smb2's function which draws debug text windows,
             // which is called at the end of smb2's function which draws the UI in general.
 
-            draw::predraw();
-            draw::disp();
-            timer::disp();
-            iw::disp();
-            Tetris::get_instance().disp();
-            menu::disp();
+//            draw::predraw();
+//            draw::disp();
+//            timer::disp();
+//            iw::disp();
+//            Tetris::get_instance().disp();
+//            menu::disp();
 
             s_draw_debug_text_trampoline();
         });
@@ -107,10 +107,10 @@ void tick()
 
     unlock_everything();
     pad::tick();
-    timer::tick();
-    iw::tick();
-    savestate::tick();
-    menu::tick();
+//    timer::tick();
+//    iw::tick();
+//    savestate::tick();
+//    menu::tick();
     scratch::tick();
 }
 

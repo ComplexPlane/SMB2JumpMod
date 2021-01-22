@@ -9,8 +9,8 @@ ori r5, r5, 0xf4ec
 
 // Calculate the index of the current character
 sub r6, r30, r5
-cmpwi r6, 9
-bge color2
+cmpwi r6, 4
+ble color2
 
 color1:
 lis r6, 0xfff0

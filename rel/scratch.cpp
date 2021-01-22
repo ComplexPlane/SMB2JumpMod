@@ -55,21 +55,7 @@ void tick()
     bool before = ground_touched && s_ticks_since_jump_input > -1 && s_ticks_since_jump_input < 3;
     bool after = jump_pressed && s_ticks_since_ground > -1 && s_ticks_since_ground < 7;
 
-    if (before && after)
-    {
-        gc::OSReport("Jump and ground at same time\n");
-        s_jumping = true;
-    }
-    else if (before)
-    {
-        gc::OSReport("Jump before ground\n");
-        s_jumping = true;
-    }
-    else if (after)
-    {
-        gc::OSReport("Jump after ground\n");
-        s_jumping = true;
-    }
+    if (before || after) s_jumping = true;
 
     if (pad::button_released(pad::BUTTON_A))
     {
