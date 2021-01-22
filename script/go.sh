@@ -13,7 +13,7 @@ if [[ "${1:-}" == "-i" ]]; then
     "$PPCINJECT" "$DOL_SRC" "$DOL_DEST" "$RELLOADER_SRC"
 fi
 
-make us -j$(nproc)
+make us gaiden -j$(nproc)
 
 echo 'Copying REL to smb2mut'
 cp ApeSphere.us.rel ~/romhack/smb2mut/files/mkb2.rel_sample.rel
