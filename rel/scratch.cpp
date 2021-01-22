@@ -5,6 +5,25 @@
 
 #define ABS(x) ((x) < 0 ? (-x) : (x))
 
+/*
+ * Potential jump sounds:
+ * 50
+ * 52
+ * 55
+ * 268
+ * 295
+ * 500
+ */
+
+namespace mkb
+{
+extern "C"
+{
+void g_call_SoundReqID_arg_0(s32 id);
+}
+
+}
+
 constexpr s32 JUMP_FRAMES = 15;
 
 namespace scratch
@@ -61,6 +80,11 @@ void tick()
     {
         s_jumping = false;
         s_jump_frames = 0;
+    }
+
+    if (s_jumping && s_jump_frames == 0)
+    {
+        mkb::g_call_SoundReqID_arg_0(268);
     }
 
     if (s_jumping)
