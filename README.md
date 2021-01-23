@@ -2,6 +2,10 @@
 
 Super Monkey Ball 2, with a jump button. It supports vanilla SMB2, Monkeyed Ball 2, SMB651, and Gaiden.
 
+Demo:
+
+[![Jump Mod Demo Video Thumbnail](https://img.youtube.com/vi/kWAunK6Av-Q/0.jpg)](https://www.youtube.com/watch?v=kWAunK6Av-Q)
+
 # Quickstart
 
 The Jump Mod installs just like the [ApeSphere Practice Mod](https://github.com/complexplane/apesphere). Releases of the jump mod can be found [here](https://github.com/ComplexPlane/SMB2JumpMod/releases).
