@@ -1,6 +1,6 @@
 # Super Monkey Ball 2 Jump Mod
 
-Super Monkey Ball 2, with a jump button. It supports vanilla SMB2, Monkeyed Ball 2, SMB651, and Gaiden.
+Super Monkey Ball 2, with a jump button. It supports vanilla SMB2, Monkeyed Ball 2, SMB651, Deluxe in 2, and Gaiden.
 
 Demo:
 
