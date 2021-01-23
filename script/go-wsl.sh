@@ -13,13 +13,25 @@ RELLOADER_SRC=relloader/src/iso-rel-loader-us.asm
 #     "$PPCINJECT" "$DOL_SRC" "$DOL_DEST" "$RELLOADER_SRC"
 # fi
 
-make us -j$(nproc)
+mkdir -p /c/Users/ComplexPlane/Documents/Dolphin\ Emulator/GC/USA/Card\ B/
+
+if [[ "${1:-}" == "-a" ]]; then
+  echo 'Building all versions'
+  make us gaiden monkeyed2 deluxein2 -j$(nproc)
+
+  echo 'Copying GCIs to dolphin emu folder'
+  cp ApeSphere.GM2E8P.gci /c/Users/ComplexPlane/Documents/Dolphin\ Emulator/GC/USA/Card\ B/
+  cp ApeSphere.GM2EGD.gci /c/Users/ComplexPlane/Documents/Dolphin\ Emulator/GC/USA/Card\ B/
+  cp ApeSphere.GM2EBJ.gci /c/Users/ComplexPlane/Documents/Dolphin\ Emulator/GC/USA/Card\ B/
+  cp ApeSphere.GM2EDX.gci /c/Users/ComplexPlane/Documents/Dolphin\ Emulator/GC/USA/Card\ B/
+
+else
+  echo 'Building us version'
+  make us -j$(nproc)
+
+  echo 'Copying GCI to dolphin emu folder'
+  cp ApeSphere.GM2E8P.gci /c/Users/ComplexPlane/Documents/Dolphin\ Emulator/GC/USA/Card\ B/
+fi
 
 # echo 'Copying REL to smb2mut'
 # cp ApeSphere.us.rel ~/romhack/smb2mut/files/mkb2.rel_sample.rel
-
-echo 'Copying GCI to dolphin emu folder'
-mkdir -p /c/Users/ComplexPlane/Documents/Dolphin\ Emulator/GC/USA/Card\ B/
-cp ApeSphere.GM2E8P.gci /c/Users/ComplexPlane/Documents/Dolphin\ Emulator/GC/USA/Card\ B/
-[[ -f ApeSphere.GM2EGD.gci ]] && cp ApeSphere.GM2EGD.gci /c/Users/ComplexPlane/Documents/Dolphin\ Emulator/GC/USA/Card\ B/
-[[ -f ApeSphere.GM2EBJ.gci ]] && cp ApeSphere.GM2EBJ.gci /c/Users/ComplexPlane/Documents/Dolphin\ Emulator/GC/USA/Card\ B/

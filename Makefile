@@ -18,6 +18,8 @@ gaiden: elf2rel
 	@$(MAKE) --no-print-directory REGION=us GAMECODE=GM2EGD
 monkeyed2: elf2rel
 	@$(MAKE) --no-print-directory REGION=us GAMECODE=GM2EBJ
+deluxein2: elf2rel
+	@$(MAKE) --no-print-directory REGION=us GAMECODE=GM2EDX
 jp: elf2rel
 	@$(MAKE) --no-print-directory REGION=jp GAMECODE=GM2J8P
 eu: elf2rel
@@ -27,6 +29,7 @@ clean: clean_elf2rel
 	@$(MAKE) --no-print-directory clean_target REGION=us GAMECODE=GM2E8P
 	@$(MAKE) --no-print-directory clean_target REGION=us GAMECODE=GM2EGD
 	@$(MAKE) --no-print-directory clean_target REGION=us GAMECODE=GM2EBJ
+	@$(MAKE) --no-print-directory clean_target REGION=us GAMECODE=GM2EDX
 	@$(MAKE) --no-print-directory clean_target REGION=jp GAMECODE=GM2J8P
 	@$(MAKE) --no-print-directory clean_target REGION=eu GAMECODE=GM2P8P
 
@@ -99,6 +102,10 @@ else ifeq ($(GAMECODE),GM2EBJ)
 	CFLAGS += -DMKB2_US
 	ASFLAGS += -DMKB2_US
 	PRINTVER = "MONKEYED2"
+else ifeq ($(GAMECODE),GM2EDX)
+	CFLAGS += -DMKB2_US
+	ASFLAGS += -DMKB2_US
+	PRINTVER = "DELUXEIN2"
 else ifeq ($(GAMECODE),GM2J8P)
 	CFLAGS += -DMKB2_JP
 	ASFLAGS += -DMKB2_JP
@@ -227,7 +234,7 @@ $(OFILES_SOURCES) : $(HFILES)
 	
 %.gci: %.rel
 	@echo packing ... $(notdir $@)
-	@$(GCIPACK) $< "rel" "Super Monkey Ball 2" "ApeSphere ($(PRINTVER))" $(BANNERFILE) $(ICONFILE) $(GAMECODE)
+	@$(GCIPACK) $< "rel" "Super Monkey Ball 2" "Jump Mod ($(PRINTVER))" $(BANNERFILE) $(ICONFILE) $(GAMECODE)
 	
 #---------------------------------------------------------------------------------
 # This rule links in binary data with the .jpg extension

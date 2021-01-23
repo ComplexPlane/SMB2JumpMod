@@ -49,7 +49,7 @@ void mods_menu()
 void about_menu()
 {
     draw::debug_text(MARGIN + draw::DEBUG_CHAR_WIDTH * 18, MARGIN + PAD, draw::Color::PURPLE, "JUMP MOD");
-    draw::debug_text(MARGIN + draw::DEBUG_CHAR_WIDTH * 27, MARGIN + PAD, draw::Color::WHITE, "v1.0");
+    draw::debug_text(MARGIN + draw::DEBUG_CHAR_WIDTH * 27, MARGIN + PAD, draw::Color::WHITE, "v1.1");
 
     draw::debug_text(MARGIN + PAD, MARGIN + PAD + 3 * LINE_HEIGHT, draw::Color::ORANGE, "Controller Bindings");
     draw::debug_text(MARGIN + PAD, MARGIN + PAD + 4 * LINE_HEIGHT, draw::Color::WHITE, "  R+Z   \x1c Toggle this help menu");

@@ -59,6 +59,12 @@ void init()
     mkb::ball_friction = 0.015;
     mkb::ball_restitution = 0.25f;
     reset();
+
+    // Don't lock camera pitch at start of level
+//    patch::write_nop(reinterpret_cast<void *>(0x802916c4));
+//    patch::write_nop(reinterpret_cast<void *>(0x802916c8));
+//    patch::write_nop(reinterpret_cast<void *>(0x802916cc));
+//    patch::write_nop(reinterpret_cast<void *>(0x802916d0));
 }
 
 void tick()
