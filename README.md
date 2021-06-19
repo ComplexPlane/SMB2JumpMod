@@ -1,3 +1,7 @@
+# DEPRECATION NOTICE
+
+I highly recommend playing Jump Mod by installing the [SMB2 Practice Mod](https://github.com/complexplane/apesphere) instead of this project. In the SMB2 Practice Mod you can simply toggle Jump Mod on/off, you don't need to reinstall Practice Mod / Jump Mod to switch between the two.
+
 # Super Monkey Ball 2 Jump Mod
 
 Super Monkey Ball 2, with a jump button. It supports vanilla SMB2, Monkeyed Ball 2, SMB651, Deluxe in 2, and Gaiden.
